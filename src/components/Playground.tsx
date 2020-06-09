@@ -5,6 +5,8 @@ import { evaluate } from "../lib/evaluate.worker";
 const childStyle = {
   flex: "1",
   height: "100%",
+  padding: '10px',
+  fontFamily: 'Menlo, Monaco, "Courier New", monospace, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif'
 };
 
 type CodeEditorProps = {
