@@ -1,5 +1,7 @@
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useMemo } from "preact/hooks";
+
+import { evaluate } from "prettier-doc-interpreter";
 
 const childStyle = {
   flex: "1",
@@ -29,7 +31,16 @@ type FormattedProps = {
 };
 function Formatted(props: FormattedProps) {
   const { value } = props;
-  return <div style={childStyle}>{value}</div>;
+  const formatted = useMemo(() => {
+    let result = null;
+    try {
+      result = evaluate(value);
+    } catch (error) {
+      result = error.message;
+    }
+    return result;
+  }, [value]);
+  return <textarea style={childStyle} value={formatted} readOnly />;
 }
 
 const playgroundStyle = {
