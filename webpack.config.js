@@ -37,8 +37,8 @@ module.exports = {
           {
             loader: "comlink-loader",
             options: {
-              singleton: true
-            }
+              singleton: true,
+            },
           },
         ],
       },
