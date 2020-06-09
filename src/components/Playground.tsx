@@ -26,6 +26,7 @@ function CodeEditor(props: CodeEditorProps) {
         const value = (e.target as any).value as string;
         onInput(value);
       }}
+      spellcheck={false}
     />
   );
 }
@@ -47,7 +48,14 @@ function Formatted(props: FormattedProps) {
       setFormatted(result);
     })();
   }, [value]);
-  return <textarea style={childStyle} value={formatted} readOnly />;
+  return (
+    <textarea
+      style={childStyle}
+      value={formatted}
+      readOnly
+      spellcheck={false}
+    />
+  );
 }
 
 const playgroundStyle = {
