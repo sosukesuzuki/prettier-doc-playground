@@ -1,7 +1,6 @@
-import { h } from "preact";
-import { useState, useMemo } from "preact/hooks";
-
-import { evaluate } from "prettier-doc-interpreter";
+import { h, Fragment } from "preact";
+import { useState, useEffect } from "preact/hooks";
+import { evaluate } from "../lib/evaluate.worker";
 
 const childStyle = {
   flex: "1",
@@ -31,14 +30,17 @@ type FormattedProps = {
 };
 function Formatted(props: FormattedProps) {
   const { value } = props;
-  const formatted = useMemo(() => {
-    let result = null;
-    try {
-      result = evaluate(value);
-    } catch (error) {
-      result = error.message;
-    }
-    return result;
+  const [formatted, setFormatted] = useState("");
+  useEffect(() => {
+    (async () => {
+      let result: string;
+      try {
+        result = await evaluate(value);
+      } catch (error) {
+        result = error.message;
+      }
+      setFormatted(result);
+    })();
   }, [value]);
   return <textarea style={childStyle} value={formatted} readOnly />;
 }
@@ -51,8 +53,10 @@ export default function Playground() {
   const [source, setSource] = useState(initialSource);
   return (
     <div style={playgroundStyle}>
-      <CodeEditor value={source} onInput={setSource} />
-      <Formatted value={source} />
+      <Fragment>
+        <CodeEditor value={source} onInput={setSource} />
+        <Formatted value={source} />{" "}
+      </Fragment>
     </div>
   );
 }

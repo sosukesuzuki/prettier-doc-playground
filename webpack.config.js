@@ -1,7 +1,6 @@
 const CopyPlugin = require("copy-webpack-plugin");
 const WorkerPlugin = require("worker-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const { GenerateSW } = require("workbox-webpack-plugin");
 
 const copyRules = [
   {
@@ -33,17 +32,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.w\.ts$/,
+        test: /\.worker\.ts$/,
         use: [
           {
-            loader: "worker-loader",
+            loader: "comlink-loader",
             options: {
-              publicPath: process.env.ASSET_HOST || "/",
-              inline: true,
-            },
-          },
-          {
-            loader: "ts-loader",
+              singleton: true
+            }
           },
         ],
       },
@@ -61,13 +56,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new CopyPlugin({ patterns: copyRules }),
-    new WorkerPlugin(),
-    new GenerateSW({
-      swDest: "service-worker.js",
-      clientsClaim: true,
-      skipWaiting: true,
-    }),
-  ],
+  plugins: [new CopyPlugin({ patterns: copyRules }), new WorkerPlugin()],
 };

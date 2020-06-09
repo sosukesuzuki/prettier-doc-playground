@@ -10,18 +10,5 @@
   "
 >
   <div class="root"></div>
-  <script type="module">
-    if ("serviceWorker" in navigator && location.hostname !== "localhost") {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker
-          .register("/service-worker.js")
-          .then((registration) => {
-            registration.onupdatefound = () => {
-              registration.update();
-            };
-          });
-      });
-    }
-    import("./main.js");
-  </script>
+  <script src="/main.js"></script>
 </body>
