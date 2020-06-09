@@ -3,7 +3,12 @@
   <title>Prettier Doc Playground</title>
   <meta charset="utf8" />
 </head>
-<body>
+<body
+  style="
+    font-family: Apple SD Gothic Neo, AppleSDGothicNeo, -apple-system,
+      BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  "
+>
   <div class="root"></div>
   <script type="module">
     if ("serviceWorker" in navigator && location.hostname !== "localhost") {
@@ -17,8 +22,6 @@
           });
       });
     }
-    const root = document.querySelector(".root");
-    root.innerHTML = "<p>...Loading</p>";
     import("./main.js");
   </script>
 </body>

@@ -33,7 +33,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts?$/,
+        test: /\.w\.ts$/,
         use: [
           {
             loader: "worker-loader",
@@ -54,6 +54,10 @@ module.exports = {
             loader: "ts-loader",
           },
         ],
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
