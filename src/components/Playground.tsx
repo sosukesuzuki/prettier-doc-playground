@@ -9,6 +9,7 @@ const childStyle = {
   padding: "10px",
   overflowY: "scroll",
   overflowX: "scroll",
+  fontSize: "16px",
   fontFamily:
     'Menlo, Monaco, "Courier New", monospace, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
 };
