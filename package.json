@@ -38,6 +38,6 @@
     "comlink": "^4.3.0",
     "lz-string": "^1.4.4",
     "preact": "^10.4.4",
-    "prettier-doc-interpreter": "^0.1.0"
+    "prettier-doc-interpreter": "^0.1.2"
   }
 }
