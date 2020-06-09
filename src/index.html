@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+  <title>Prettier Doc Playground</title>
+  <meta charset="utf8" />
+</head>
+<body>
+  <div class="root"></div>
+  <script type="module">
+    if ("serviceWorker" in navigator && location.hostname !== "localhost") {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then((registration) => {
+            registration.onupdatefound = () => {
+              registration.update();
+            };
+          });
+      });
+    }
+    const root = document.querySelector(".root");
+    root.innerHTML = "<p>...Loading</p>";
+    import("./main.js");
+  </script>
+</body>

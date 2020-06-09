@@ -1,0 +1,24 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": { "es6": true, "browser": true },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    "prettier"
+  ],
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-uses-vars": 1,
+    "no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "varsIgnorePattern": "^h$"
+    }]
+  }
+}
