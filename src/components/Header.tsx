@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { BACKGROUND_COLOR, TEXT_COLOR } from "../../lib/colors";
+import { BACKGROUND_COLOR, TEXT_COLOR } from "../lib/colors";
 
 const headerStyle = {
   backgroundColor: BACKGROUND_COLOR,
