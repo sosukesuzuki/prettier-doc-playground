@@ -12,6 +12,7 @@
     "lint": "eslint src --ext .ts,.tsx"
   },
   "devDependencies": {
+    "@types/lz-string": "^1.3.34",
     "@typescript-eslint/eslint-plugin": "^3.2.0",
     "@typescript-eslint/parser": "^3.2.0",
     "comlink-loader": "^2.0.0",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "comlink": "^4.3.0",
+    "lz-string": "^1.4.4",
     "preact": "^10.4.4",
     "prettier-doc-interpreter": "^0.1.0"
   }

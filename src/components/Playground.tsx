@@ -1,6 +1,7 @@
 import { h, Fragment } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { evaluate } from "../lib/evaluate.worker";
+import { replace, read } from "../lib/urlHash";
 
 const childStyle = {
   flex: "1",
@@ -55,6 +56,17 @@ const playgroundStyle = {
 const initialSource = `group(concat(["foo", hardline, "bar"]))`;
 export default function Playground() {
   const [source, setSource] = useState(initialSource);
+  useEffect(() => {
+    const { source } = read();
+    if (source) {
+      setSource(source);
+    } else {
+      setSource(initialSource);
+    }
+  }, []);
+  useEffect(() => {
+    replace({ source });
+  }, [source]);
   return (
     <div style={playgroundStyle}>
       <Fragment>
