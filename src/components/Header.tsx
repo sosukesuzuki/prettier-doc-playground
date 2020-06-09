@@ -4,7 +4,9 @@ import { BACKGROUND_COLOR, TEXT_COLOR } from "../lib/colors";
 const headerStyle = {
   backgroundColor: BACKGROUND_COLOR,
   color: TEXT_COLOR,
-  padding: "10px",
+  height: "40px",
+  lineHeight: "40px",
+  padding: "0 10px",
   display: "flex",
   justifyContent: "space-between",
 };

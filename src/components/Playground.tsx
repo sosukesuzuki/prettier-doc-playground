@@ -7,6 +7,8 @@ const childStyle = {
   flex: "1",
   height: "100%",
   padding: "10px",
+  overflowY: "scroll",
+  overflowX: "scroll",
   fontFamily:
     'Menlo, Monaco, "Courier New", monospace, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
 };
@@ -60,6 +62,7 @@ function Formatted(props: FormattedProps) {
 
 const playgroundStyle = {
   display: "flex",
+  height: "calc(100vh - 40px)"
 };
 const initialSource = `group(concat(["foo", hardline, "bar"]))`;
 export default function Playground() {
