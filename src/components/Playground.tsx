@@ -39,7 +39,7 @@ type FormattedProps = {
 };
 function Formatted(props: FormattedProps) {
   const { value } = props;
-  const [formatted, setFormatted] = useState("");
+  const [formatted, setFormatted] = useState<null | string>("");
   useEffect(() => {
     (async () => {
       let result: string;
@@ -54,7 +54,7 @@ function Formatted(props: FormattedProps) {
   return (
     <textarea
       style={childStyle}
-      value={formatted}
+      value={formatted ?? "...loading"}
       readOnly
       spellcheck={false}
     />
