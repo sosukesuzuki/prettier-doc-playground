@@ -1,5 +1,6 @@
 import type { evaluate as original } from "prettier-doc-interpreter";
 
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 type Promisify<T extends (...args: any) => any> = (
   ...args: Parameters<T>
 ) => Promise<ReturnType<T>>;

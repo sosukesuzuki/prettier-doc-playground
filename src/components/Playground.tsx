@@ -18,6 +18,7 @@ function CodeEditor(props: CodeEditorProps) {
       style={childStyle}
       value={value}
       onInput={(e) => {
+        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
         const value = (e.target as any).value as string;
         onInput(value);
       }}
